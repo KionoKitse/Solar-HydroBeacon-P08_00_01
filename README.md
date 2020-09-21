@@ -1,5 +1,5 @@
 ### Description  
-P08_00_01 Solar HydroBeacon
+P08_01_00 Solar HydroBeacon
 A solar powered soil moisture sensor project.
  * Solar powered
  * LED indicates soil moisture low or acceptable
