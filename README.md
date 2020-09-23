@@ -9,6 +9,9 @@ A solar powered soil moisture sensor project.
  * Low cost
  * Interesting and elegant design
  * Small size
+### Notes to user
+ * Project documented at https://kionokitse.wordpress.com/solar-hydrobeacon/
+ * In development
 ### What's next
  * Design a circuit that will turn on a red led if the resistance is high and a green led if the resistance is low
  * Test led drivers
