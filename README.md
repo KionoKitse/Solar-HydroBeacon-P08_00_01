@@ -13,14 +13,22 @@ A solar powered soil moisture sensor project.
  * Project documented at https://kionokitse.wordpress.com/solar-hydrobeacon/
  * In development
 ### What's next
+ * Determine typical soil moisture levels
+ * Determine trimpot value that would be the best for the typical soil moistures
+ * Find voltage supervisors that would work
  * Order solar panels
- * look into a diy voltage comparator (OpAmp) 
  * Test led drivers
 ### Notebook
  * Online circuit simulator [link](http://falstad.com/circuit/)
  * Case option: [Neko Submarine](https://www.thingiverse.com/thing:3081218) 
  * Case option: [cute caterpillar](https://www.thingiverse.com/thing:3598906)
  * Case option: [Pom Pom Purin keychain](https://www.thingiverse.com/thing:1188272)
+ * Voltage detector 
+  * Trimpot should be about 50% less than sensor resistance
+  * Voltage divider total resistance should be high to limit current flow
+  * On build I need to re-tune the circuit
+  * Added a 500Ohm resistor to cut down on the wasted current to turn on the green led
+  
 ### Progress log 
  * 2020-09-19 Got some garden lights from the store to test these led drivers
  * 2020-09-19 Testing the led drivers. It doesn't look like I can drive an ATtiny85 directly off the boosted voltage
@@ -34,6 +42,9 @@ A solar powered soil moisture sensor project.
  * 2020-09-24 Looking into logic diagrams
  * 2020-09-24 Got 50  more led divers in the mail
  * 2020-09-25 Created a working simulated circuit at 5v that will turn a red led on if resistance is high or a green led if resistance is low [link](http://tinyurl.com/yyqalqkw)
+ * 2020-09-30 Modifying the caterpillar STL for the project
+ * 2020-10-01 Searching for a voltage supervisor IC to control when to activate the circuit
+ * 2020-10-05 Fined turning the voltage detector circuit for 2V [link](http://tinyurl.com/yxfx4we7)
  
 ### Next Blog Post
 Logic gates n stuff
