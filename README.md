@@ -24,10 +24,10 @@ A solar powered soil moisture sensor project.
  * Case option: [cute caterpillar](https://www.thingiverse.com/thing:3598906)
  * Case option: [Pom Pom Purin keychain](https://www.thingiverse.com/thing:1188272)
  * Voltage detector 
-  * Trimpot should be about 50% less than sensor resistance
-  * Voltage divider total resistance should be high to limit current flow
-  * On build I need to re-tune the circuit
-  * Added a 500Ohm resistor to cut down on the wasted current to turn on the green led
+	* Trimpot should be about 50% less than sensor resistance
+	* Voltage divider total resistance should be high to limit current flow
+	* On build I need to re-tune the circuit
+	* Added a 500Ohm resistor to cut down on the wasted current to turn on the green led
   
 ### Progress log 
  * 2020-09-19 Got some garden lights from the store to test these led drivers
@@ -45,8 +45,17 @@ A solar powered soil moisture sensor project.
  * 2020-09-30 Modifying the caterpillar STL for the project
  * 2020-10-01 Searching for a voltage supervisor IC to control when to activate the circuit
  * 2020-10-05 Fined turning the voltage detector circuit for 2V [link](http://tinyurl.com/yxfx4we7)
+ * 2020-10-05 Testing sample miller style circuit [Link](http://tinyurl.com/y38uw3cg)
+ * 2020-10-05 Improving voltage flow [Link] (http://tinyurl.com/yymy2248)
+ * 2020-10-05 Circuit with voltage comparator and solar engine (not really working) [Link](http://tinyurl.com/y5qvovyz)
+ * 2020-10-05 Current progress with circuit design [Link](http://tinyurl.com/yxzwtum5)
  
 ### Next Blog Post
+Components and logic
+The basics for this project I will be needing a soil moisture sensor, some LEDs, a solar panel, a capacitor and some sort of logic controller. For the soil moisture sensor, I'll be using a diy conductivity type sensor that I had tested for the Raindrop Bob project. The capacitors and LEDs should not be a problem since I've got plenty that were scavenged from e-waste. The solar panel won't be a problem yet since I've got one that I pulled from a calculator but I'll need to find some source for small soar panels at some point. I've checked eBay and AliExpress but I'm not really finding anything that's similar to what I would want. For me, size is going to be a huge factor since I want this to not take up all the space in the flower pot. Anyway that will be an issue for another time. For now I want to talk about that last point, the logic controller.
+
+At this point, I think I know what I'm going to do. Originally I was thinking ATtiny but the solar panel is only going to output 1.5V nominally and probably worse if it's not in a particularly bright room. This poses a problem because the ATtiny85 will only work down to 2.7V. I can get this down to 1.8V with the ATtiny85V but that is still higher than my 1.5V solar output. I could boost this with another solar cell in series. This idea might work but it would also contribute to the size significantly. So I want to keep it down to one cell if possible. If I'm limited to 1.5V then I need to either look for a low powered microcontroller or build my own logic circuits. I'm leaning towards build my own but I'll detail the specifics for another post. 
+
 Logic gates n stuff
 In my previous post, I was working on some sort of way to switch on one led if my detected voltage was low and switch on another led if my voltage was high. I was running into some issues but I think I might have just figured it out. After several hours of staring at the circuit simulator, rearranging components and changing resistor values I eventually decided that I would need to start from scratch and attempt it from a logic perspective. 
 
