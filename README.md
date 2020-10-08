@@ -20,9 +20,10 @@ A solar powered soil moisture sensor project.
  * Test led drivers
 ### Notebook
  * Online circuit simulator [link](http://falstad.com/circuit/)
- * Case option: [Neko Submarine](https://www.thingiverse.com/thing:3081218) 
- * Case option: [cute caterpillar](https://www.thingiverse.com/thing:3598906)
- * Case option: [Pom Pom Purin keychain](https://www.thingiverse.com/thing:1188272)
+ * Case design options
+	* Case option: [Neko Submarine](https://www.thingiverse.com/thing:3081218) 
+	* Case option: [cute caterpillar](https://www.thingiverse.com/thing:3598906)
+	* Case option: [Pom Pom Purin keychain](https://www.thingiverse.com/thing:1188272)
  * Voltage detector 
 	* Trimpot should be about 50% less than sensor resistance
 	* Voltage divider total resistance should be high to limit current flow
@@ -30,8 +31,11 @@ A solar powered soil moisture sensor project.
 	* Added a 500Ohm resistor to cut down on the wasted current to turn on the green led
  * Solar LED driver
 	* Good intro to the solar LED driver featuring the YX8018 IC [Link](https://ez.analog.com/adieducation/university-program/b/blogs/posts/hacking-an-led-solar-garden-light)
+	* Solar powered soil moisture sensor project [Link](https://learn.sparkfun.com/tutorials/soil-moisture-sensing-by-hacking-a-solar-light/all)
+	* When the CE pin on ANA608 is high the LED will turn ON
+	* When the CE pin on ANA608 is low the LED will trun OFF
+ * Website with some solar circuits maybe useful later [Link](https://www.electroschematics.com/category/solar-projects/)
 	
-  
 ### Progress log 
  * 2020-09-19 Got some garden lights from the store to test these led drivers
  * 2020-09-19 Testing the led drivers. It doesn't look like I can drive an ATtiny85 directly off the boosted voltage
@@ -52,6 +56,8 @@ A solar powered soil moisture sensor project.
  * 2020-10-05 Improving voltage flow [Link] (http://tinyurl.com/yymy2248)
  * 2020-10-05 Circuit with voltage comparator and solar engine (not really working) [Link](http://tinyurl.com/y5qvovyz)
  * 2020-10-05 Current progress with circuit design [Link](http://tinyurl.com/yxzwtum5)
+ * 2020-10-08 Experimenting with the ANA608 solar LED driver
+ * 2020-10-08 ANA608 seems to work but I should explore expanded usage scenarios 
  
 ### Next Blog Post
 2020-10-08 <font color="63C0EC"><b>P08_01_00 Logic gates n stuff</b></font>
