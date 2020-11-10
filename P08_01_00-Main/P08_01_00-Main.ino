@@ -32,6 +32,8 @@ void setup() {
   pinMode(SensorPwr, OUTPUT);
   pinMode(RefPin, INPUT);
   pinMode(SoilPin, INPUT);
+  delay(2000);
+  Cycle();
   //Serial.begin(9600);
 }
 
@@ -87,5 +89,18 @@ void BlinkGreen(){
     delay(100);
     digitalWrite(Green,LOW);
     delay(1000);
+  }
+}
+void Cycle(){
+  for(int i=0; i<5; i++)
+  {
+    digitalWrite(Green,HIGH);
+    delay(100);
+    digitalWrite(Green,LOW);
+    delay(200);
+    digitalWrite(Red,HIGH);
+    delay(100);
+    digitalWrite(Red,LOW);
+    delay(200);
   }
 }
