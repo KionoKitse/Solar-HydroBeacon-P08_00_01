@@ -82,10 +82,28 @@ A solar powered soil moisture sensor project.
  * 2020-10-05 Current progress with circuit design [Link](http://tinyurl.com/yxzwtum5)
  * 2020-10-08 Experimenting with the ANA608 solar LED driver
  * 2020-10-08 ANA608 seems to work but I should explore expanded usage scenarios 
+ * 2020-10-10 Tested running ATtiny85 directly off ANA608 no luck
  * 2020-10-13 Simple blink circuit from [here](https://www.build-electronic-circuits.com/blinking-led-circuit/)[Link](http://tinyurl.com/y29udzjd)
  * 2020-10-14 Doing research on solar led divers and modifying them for constant boosted DC voltage
  * 2020-10-14 Buy some test parts from mouser
  * 2020-10-15 building test circuits no luck I think mc4742 is an invalid part number
+ * 2020-10-17 Tested running ATtiny85 directly off ANA608 no luck
+ * 2020-10-26 Mouser parts arrived (2 weeks delivery) 
+ * 2020-10-30 Testing [this](https://dzrmo.wordpress.com/2017/01/02/garden-light-redux-aka-joule-thief-p-1/) circuit with the new parts. Seems to work
+ * 2020-11-03 Solar power circuit seems to work best with a Schottky diode instead of rectifier diode
+ * 2020-11-03 Rectifier diode drops the voltage too low to run green LEDs
+ * 2020-11-08 Testing solar power circuit to optimize setup
+ * 2020-11-08 Getting stable power from ANA608 stays at about 3.3V when ATtiny85 is doing nothing
+ * 2020-11-08 Write initial main AVR sketch
+ * 2020-11-08 Created breadboard prototype with moisture sensor, trimpot reference, Green/Red LEDs and microcontroller results successful
+ * 2020-11-09 Got the ANA608 with the LDR to work and power the ATtiny85
+ * 2020-11-09 LDR helps a lot to delay the start time
+ * 2020-11-09 Microcontroller does not reboot when light turned back on only if remove battery
+ * 2020-11-09 Smallest capacitor that seems to work okay is 47uF
+ * 2020-11-10 Checking space in caterpillar model for battery
+ * 2020-11-10 Both batteries seem to fit
+ * 2020-11-10 Modifying CAD to make room for LDR
+ 
  
 ### Next Blog Post
 2020-10-15 <font color="63C0EC"><b>P08_01_00 Solar engine</b></font>
