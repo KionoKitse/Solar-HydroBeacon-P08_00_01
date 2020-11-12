@@ -1,0 +1,92 @@
+>>>>>> Last POST: Solar engine <<<<<<
+2020-10-15 <font color="63C0EC"><b>P08_01_00 Solar engine</b></font>
+I made some good progress recently and I was able to construct the logic circuit mentioned above. It seems to be working well. The next component that I need to make is something that will be able to supply power to this logic circuit. The idea here is that I want something that will turn on every few minutes or hours to check the soil moisture. This is important for several reasons. The first and most important reason is that every time I pass electricity between the two probes of the soil moistures sensor it degrades the sensor probes. <a href="https://hackaday.com/2017/11/16/sensing-soil-moisture-youre-doing-it-wrong/">Hackaday</a> wrote a nice post about this phenomena and mentioned using graphite probes to mitigate the effects. I'm thinking to just limit the check frequency to once every few whatevers to prevent it from happening as much but maybe for the future I can look into other options. The other reason is that the solar cells will only generate so much electricity. It's unlikely that the solar cell will generate enough electricity to consistently run the circuit. So periodic operation with time to charge the batteries will be the preferred option to go.
+
+In my research for solar based projects I came across the category of BEAM robotics. I won't go much into what they are but if you are interested <a href="https://en.wikipedia.org/wiki/BEAM_robotics">here</a> is a good resource describing what BEAM robotics are about. I'm particularly interested in solar engines. You can find a good resource <a href="http://solarbotics.net/library/circuits/se.html">here</a> for that topic as well. I'm still working out what would be the best option for this project but I think I'm looking in the right direction. The best case scenario would be charge all day and then in the evening check the soil moisture level once. If the moisture level is low, blink red, else blink green. I'm hoping that I can have enough stored power to blink for several hours. The evening part is not so important but I'm thinking that the best chances for noticing that the plant needs to be watered will be in the evening after work or at night when it is very clear that an led is flashing away.
+<font color="63C0EC">Category:</font> Gardening
+<font color="63C0EC">Tags:</font> Arduino, Domotics, Engineering, Gardening, Home Automation, P08_01_00, Plants, Software, Solar
+
+
+>>>>>> NEW POST: Solar engine troubles <<<<<<
+2020-10-15 <font color="63C0EC"><b>P08_01_00 Solar engine troubles</b></font>
+It's been a while since I last posted and I seem to have gotten stuck again. 
+
+
+In my last post I talked a  bit about solar engines and I should say that they are looking a little more complicated then I was originally expecting. My first attempt was to build the <a href="http://solarbotics.net/library/circuits/se_t1_fled.html">FLED based solar engine</a> since that didn't require any special components. I don't have a motor but I tried to use a LED in it's place. I know quite a lot more about electronics now than I did back then but clearly it was never going to work that way. I modified the components and even ordered a variety pack of transistors to try out but I still wasn't getting anywhere. My next attempt was to simulate the circuit in <a href="https://tinyurl.com/y26xv6wr">Circuit.js</a>. I've updated the model to reflect some recently gained knowledge about how to model a motor in SPICE but still no luck. I played around with the circuit simulator but was not able to get the circuit to work. Perhaps this is due to Circuit.js not having a motor simulation object or a way to model a solar cell. My next attempt was to try the <a href="http://solarbotics.net/library/circuits/se_t1_zener.html">zener-based solar engine</a>. I was able to find a random zener in my junk box but I was unable to make progress with that or the <a href="https://tinyurl.com/y29gntqv">simulation</a> either. The next thing I looked at was the <a href="http://solarbotics.net/library/circuits/se_t1_mse.html">"Miller"</a> style solar engine based on the 1381 IC. This design seemed a little more simpler and it wasn't difficult to understand how the circuit would work. When the voltage is higher than the 1381 reference voltage it would switch a transistor and turn on the motor. Unfortunately I didn't have a 1381 IC or a way to simulate it.
+
+<a href="http://solarbotics.net/library/circuits/se_t1_mse.html">"Miller" solar engine</a>
+
+	
+In my research for solar based projects I came across the category of BEAM robotics. I won't go much into what they are but if you are interested <a href="https://en.wikipedia.org/wiki/BEAM_robotics">here</a> is a good resource describing what BEAM robotics are about. I'm particularly interested in solar engines. You can find a good resource <a href="http://solarbotics.net/library/circuits/se.html">here</a> for that topic as well. I'm still working out what would be the best option for this project but I think I'm looking in the right direction. The best case scenario would be charge all day and then in the evening check the soil moisture level once. If the moisture level is low, blink red, else blink green. I'm hoping that I can have enough stored power to blink for several hours. The evening part is not so important but I'm thinking that the best chances for noticing that the plant needs to be watered will be in the evening after work or at night when it is very clear that an led is flashing away.
+<font color="63C0EC">Category:</font> Gardening
+<font color="63C0EC">Tags:</font> Arduino, Domotics, Engineering, Gardening, Home Automation, P08_01_00, Plants, Software, Solar
+<a href="https://kionokitse.wordpress.com/solar-hydrobeacon/">Project Page</a>
+>>>>>> NEW POST <<<<<<
+>>>>>> NEW POST <<<<<<
+>>>>>> NEW POST <<<<<<
+>>>>>> NEW POST <<<<<<
+>>>>>> NEW POST <<<<<<
+>>>>>> NEW POST <<<<<<
+>>>>>> NEW POST: Solar DC-DC converters <<<<<<
+2020-10-15 <font color="63C0EC"><b>P08_01_00 Solar DC-DC converters</b></font>
+In an unusual twist of fate, while browsing Hackaday I came across something that might be really helpful for this project. I don't quite remember how I found <a href="https://hackaday.io/project/164682-a-cheap-and-dangerous-garden-light-boost-converter/details">this</a> particular project but found it I did. The gist of the project is using a solar LED driver to generate a stable DC voltage that is high enough to run an ATtiny85. The solar LED driver will take in 1.2V from a Ni-CD battery and create a high frequency output with voltage spikes as high as 10V. The solar LED driver isn't something new and I've even tried running an ATtiny85 directly off the output pin but not had any luck. I think the current was too low or the oscillation frequency was not fast enough to keep the microcontroller running happily. What makes this project interesting though is that Randy uses a capacitor to store of the charge and smooth out the voltage spikes. These high voltage spikes slowly raise the capacitor voltage and eventually the voltage in the capacitor will reach 10V if the output current is less than the input current. To work around this, Randy makes use of the ATtiny85's ability to read the VCC voltage through reading the ADC. When it detects the voltage getting higher than some set voltage it sends a signal to the LED driver to turn off. This works because most solar LED drivers have a CE pin that is used to detect when it's dark outside and it's time to turn on the lights. Conversely when the input voltage gets low the microcontroller can also signal to the solar LED driver to turn back on. 
+The other interesting thing about Randy's project is that it contains links to other similar projects. Following those links lead me to even more useful information. From what I gather this seems like it will actually work. It's not clear how well it will work but it's definitely not impossible. I've posted some links to some websites that I found particularly helpful on this topic.
+
+<a href="https://hackaday.io/project/164682-a-cheap-and-dangerous-garden-light-boost-converter/details">A Cheap And Dangerous Garden Light Boost Converter</a>
+Interesting use of an ATtiny85V to directly control YX8051 by manipulating the solar voltage input. A cap will hold off the 10V voltage spikes.
+
+<a href="https://skootsone.yolasite.com/solar-led-msp430.php">DC-DC converter based on Solar LED Light</a>
+Seems to be a more stable version but requires a lot of additional components
+
+<a href="https://dzrmo.wordpress.com/2017/01/02/garden-light-redux-aka-joule-thief-p-1/">Garden Light Redux – Power Supply</a>
+Using a YX805A to get a stable 5V power output for ATtiny85 or others 
+
+<a href="https://web.archive.org/web/20170119175434/http://www.dolenle.com/proj4.html">$1 Solar Soil Sensor</a>
+No images and it's long but I think it will be worth a replica
+
+<a href="http://www.radioradar.net/radiofan/lighting/yx8018.html">Stabilized voltage converter on the YX8018 microcircuit</a>
+XY8018 boost regulator with trimpot control 
+
+<font color="63C0EC">Category:</font> Gardening
+<font color="63C0EC">Tags:</font> Arduino, Domotics, Engineering, Gardening, Home Automation, P08_01_00, Plants, Software, Solar
+<a href="https://kionokitse.wordpress.com/solar-hydrobeacon/">Project Page</a>
+
+
+>>>>>> NEW POST: Ordering parts on Mouser <<<<<<
+2020-10-15 <font color="63C0EC"><b>P08_01_00 Ordering parts on Mouser</b></font>
+I'm pretty excited about the solar DC-DC converter ideas I found in my previous post. I don't have most of the components needed to make them so I decided that now is the time to get some more parts from Mouser. I'm getting:
+<ul>
+	<li>Solar cells</li>
+	<li>ATtiny85Vs</li>
+	<li>3V zeners</li>
+	<li>5V zeners</li>
+	<li>Schottky diodes</li>
+	<li>Rectifier diodes</li>
+</ul>
+I'm pretty excited since I think this will probably work and help move this project forward.
+<font color="63C0EC">Category:</font> Gardening
+<font color="63C0EC">Tags:</font> Arduino, Domotics, Engineering, Gardening, Home Automation, P08_01_00, Plants, Software, Solar
+<a href="https://kionokitse.wordpress.com/solar-hydrobeacon/">Project Page</a>
+
+
+>>>>>> NEW POST: Solar power circuit <<<<<<
+2020-10-15 <font color="63C0EC"><b>P08_01_00 Solar power circuit</b></font>
+I finally got the eagerly awaited components from Mouser and was able to test some of the solar DC-DC converter designs that I was interested in. The most simple design is was the <a href="https://hackaday.io/project/164682-a-cheap-and-dangerous-garden-light-boost-converter/details">Randy Elwin design</a>. I quickly tried it a while back but was not able to get it to work. I didn't have much time to work with it but looking back I had my wiring wrong and the ANA608s I have work differently than the YX8051s that Randy was using. The design that I was most interested in trying was the <a href="https://dzrmo.wordpress.com/2017/01/02/garden-light-redux-aka-joule-thief-p-1/">DZRMO design</a>. It's pretty much the same thing but with a zener regulating the output voltage instead of using the ATtiny85's output pin to control the LED driver. I was also interested in the <a href="https://skootsone.yolasite.com/solar-led-msp430.php">SKootS design</a> but have not had a chance to try it yet. I was able to get the DZRMO design to work with the new components.
+
+After my success with getting a stable voltage output I looked at some different parameters to see if it's possible to optimize the circuit a little. What I've found in testing is that the zener diode doesn't seem to be necessary always. When the ATtiny85 is doing nothing the constant voltage input hovers around 3.4V. If the microcontroller is in sleep mode this value can escalate quite quickly and easily ramp up over the max voltage. The zener will prevent this from happening by allowing the excess voltage to drain to ground. If I don't put the microcontroller to sleep, the zener won't be necessary. I haven't done any tests yet to see if the microcontroller idling uses more current than the microcontroller sleeping with the zener draining the excess current. For now though I'll skip on the zener since that would simplify the code to just not put the microcontroller in sleep mode. The other part I optimized is the capacitor size. Originally I was testing with a 1400uF capacitor but it seems to work with capacitors as low as 47uF. I tried a 10uF capacitor and fried the microcontroller while I wasn't paying attention. I also checked to see if a rectifier diode would work in place of the Schottky diode. In this case it doesn't seem to work. With the Schottky diode I'm getting about 3.4V but with the rectifier diode I'm getting about 2V. There is some wiggle room in selecting the inductor and that does seem to effect the output voltage as well but I don't have my notes on that right now.
+<font color="63C0EC">Category:</font> Gardening
+<font color="63C0EC">Tags:</font> Arduino, Domotics, Engineering, Gardening, Home Automation, P08_01_00, Plants, Software, Solar
+<a href="https://kionokitse.wordpress.com/solar-hydrobeacon/">Project Page</a>
+
+
+>>>>>> NEW POST: Prototype working <<<<<<
+2020-10-15 <font color="63C0EC"><b>P08_01_00 Prototype working</b></font>
+Over the weekend I was able to make some good progress and I can see this project actually coming together now. After my success with the solar power circuit I started working on an initial prototype. What I'm thinking is that the Solar HydroBeacon will charge the batteries all day. When it gets dark outside, the circuit will power on the microcontroller, sample the soil moisture and blink away night with the results. This should work pretty well because the solar LED driver will easily handle the charging and switchover to powering the microcontroller. On the microprocessor side I will need a red LED, green LED, soil moisture sensor, and a way to adjust the soil moisture threshold. The soil moisture sensor will be one of the DIY resistive sensors I've made in the past. To set the soil moisture threshold I will use a trimpot. This should work well since I can tune the trimpot to match the level of resistance that the soil moisture sensor would typically output if the soil is dry. The microcontroller will only need to compare the two values to determine which LED to turn on. Given that I will have a variable input voltage, this makes a lot of sense because the <b>analogRead</b> function is voltage dependent.  
+I was able to breadboard a prototype based on the drawing below and created an AVR sketch for the microcontroller to test with. For setting the soil moisture level, I got some soil that was at the level of dryness that would typically require watering then adjusted the trimpot just until it switched from blinking green to blinking red. Next I watered the soil and checked that it was still blinking green. After the soil dried out a few days latter I came back and verified that the microcontroller was blinking red. 
+
+Anyway lets get back to the prototype.  
+<font color="63C0EC">Category:</font> Gardening
+<font color="63C0EC">Tags:</font> Arduino, Domotics, Engineering, Gardening, Home Automation, P08_01_00, Plants, Software, Solar
+<a href="https://kionokitse.wordpress.com/solar-hydrobeacon/">Project Page</a>
+>>>>>> NEW POST: Adding a photoresistor <<<<<<
+

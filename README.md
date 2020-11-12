@@ -106,16 +106,3 @@ A solar powered soil moisture sensor project.
  
  
 ### Next Blog Post
-2020-10-15 <font color="63C0EC"><b>P08_01_00 Solar engine</b></font>
-In my last post I talked a  bit about solar engines and I should say that they are looking a little more complicated then I was originally expecting. My first attempt was to build the <a href="http://solarbotics.net/library/circuits/se_t1_fled.html">FLED based solar engine</a> since that didn't require any special components. I don't have a motor but I tried to use a LED in it's place. I know quite a lot more about electronics now than I did back then but clearly it was never going to work that way. I modified the components and even ordered a variety pack of transistors to try out but I still wasn't getting anywhere. My next attempt was to simulate the circuit in <a href="https://tinyurl.com/y26xv6wr">Circuit.js</a>. I've updated the model to reflect some recently gained knowledge about how to model a motor in SPICE but still no luck. I played around with the circuit simulator but was not able to get the circuit to work. Perhaps this is due to Circuit.js not having a motor simulation object or a way to model a solar cell. My next attempt was to try the <a href="http://solarbotics.net/library/circuits/se_t1_zener.html">zener-based solar engine</a>. I was able to find a random zener in my junk box but I was unable to make progress with that or the <a href="https://tinyurl.com/y29gntqv">simulation</a> either. The next thing I looked at was the <a href="http://solarbotics.net/library/circuits/se_t1_mse.html">"Miller"</a> style solar engine based on the 1381 IC. This design seemed a little more simpler and it wasn't difficult to understand how the circuit would work. When the voltage is higher than the 1381 reference voltage it would switch a transistor and turn on the motor. Unfortunately I didn't have a 1381 IC or a way to simulate it.
-
-<a href="http://solarbotics.net/library/circuits/se_t1_mse.html">"Miller" solar engine</a>
-
-	
-In my research for solar based projects I came across the category of BEAM robotics. I won't go much into what they are but if you are interested <a href="https://en.wikipedia.org/wiki/BEAM_robotics">here</a> is a good resource describing what BEAM robotics are about. I'm particularly interested in solar engines. You can find a good resource <a href="http://solarbotics.net/library/circuits/se.html">here</a> for that topic as well. I'm still working out what would be the best option for this project but I think I'm looking in the right direction. The best case scenario would be charge all day and then in the evening check the soil moisture level once. If the moisture level is low, blink red, else blink green. I'm hoping that I can have enough stored power to blink for several hours. The evening part is not so important but I'm thinking that the best chances for noticing that the plant needs to be watered will be in the evening after work or at night when it is very clear that an led is flashing away.
-<font color="63C0EC">Category:</font> Gardening
-<font color="63C0EC">Tags:</font> Arduino, Domotics, Engineering, Gardening, Home Automation, P08_01_00, Plants, Software, Solar
-<a href="https://kionokitse.wordpress.com/solar-hydrobeacon/">Project Page</a>
-
-
-<a href="http://solarbotics.net/library/circuits/se.html">here</a>
