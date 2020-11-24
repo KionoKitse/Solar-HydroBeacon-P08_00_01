@@ -103,6 +103,9 @@ A solar powered soil moisture sensor project.
  * 2020-11-10 Checking space in caterpillar model for battery
  * 2020-11-10 Both batteries seem to fit
  * 2020-11-10 Modifying CAD to make room for LDR
+ * 2020-11-16 Needed to use blender to modify CAD
+ * 2020-11-16 Printing caterpillar
+ * 2020-11-17 Testing new solar panels results are disappointing needs review
  
  
 ### Next Blog Post
