@@ -1,29 +1,4 @@
 
->>>>>> NEW POST: Solar DC-DC converters <<<<<<
-2020-10-15 <font color="63C0EC"><b>P08_01_00 Solar DC-DC converters</b></font>
-In an unusual twist of fate, while browsing Hackaday I came across something that might be really helpful for this project. I don't quite remember how I found <a href="https://hackaday.io/project/164682-a-cheap-and-dangerous-garden-light-boost-converter/details">this</a> particular project but found it I did. The gist of the project is using a solar LED driver to generate a stable DC voltage that is high enough to run an ATtiny85. The solar LED driver will take in 1.2V from a Ni-CD battery and create a high frequency output with voltage spikes as high as 10V. The solar LED driver isn't something new and I've even tried running an ATtiny85 directly off the output pin but not had any luck. I think the current was too low or the oscillation frequency was not fast enough to keep the microcontroller running happily. What makes this project interesting though is that Randy uses a capacitor to store of the charge and smooth out the voltage spikes. These high voltage spikes slowly raise the capacitor voltage and eventually the voltage in the capacitor will reach 10V if the output current is less than the input current. To work around this, Randy makes use of the ATtiny85's ability to read the VCC voltage through reading the ADC. When it detects the voltage getting higher than some set voltage it sends a signal to the LED driver to turn off. This works because most solar LED drivers have a CE pin that is used to detect when it's dark outside and it's time to turn on the lights. Conversely when the input voltage gets low the microcontroller can also signal to the solar LED driver to turn back on. 
-The other interesting thing about Randy's project is that it contains links to other similar projects. Following those links lead me to even more useful information. From what I gather this seems like it will actually work. It's not clear how well it will work but it's definitely not impossible. I've posted some links to some websites that I found particularly helpful on this topic.
-
-<a href="https://hackaday.io/project/164682-a-cheap-and-dangerous-garden-light-boost-converter/details">A Cheap And Dangerous Garden Light Boost Converter</a>
-Interesting use of an ATtiny85V to directly control YX8051 by manipulating the solar voltage input. A cap will hold off the 10V voltage spikes.
-
-<a href="https://skootsone.yolasite.com/solar-led-msp430.php">DC-DC converter based on Solar LED Light</a>
-Seems to be a more stable version but requires a lot of additional components
-
-<a href="https://dzrmo.wordpress.com/2017/01/02/garden-light-redux-aka-joule-thief-p-1/">Garden Light Redux – Power Supply</a>
-Using a YX805A to get a stable 5V power output for ATtiny85 or others 
-
-<a href="https://web.archive.org/web/20170119175434/http://www.dolenle.com/proj4.html">$1 Solar Soil Sensor</a>
-No images and it's long but I think it will be worth a replica
-
-<a href="http://www.radioradar.net/radiofan/lighting/yx8018.html">Stabilized voltage converter on the YX8018 microcircuit</a>
-XY8018 boost regulator with trimpot control 
-
-<font color="63C0EC">Category:</font> Gardening
-<font color="63C0EC">Tags:</font> Arduino, Domotics, Engineering, Gardening, Home Automation, P08_01_00, Plants, Software, Solar
-<a href="https://kionokitse.wordpress.com/solar-hydrobeacon/">Project Page</a>
-
-
 >>>>>> NEW POST: Ordering parts on Mouser <<<<<<
 2020-10-15 <font color="63C0EC"><b>P08_01_00 Ordering parts on Mouser</b></font>
 I'm pretty excited about the solar DC-DC converter ideas I found in my previous post. I don't have most of the components needed to make them so I decided that now is the time to get some more parts from Mouser. I'm getting:
