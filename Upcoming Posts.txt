@@ -1,21 +1,4 @@
 
->>>>>> NEW POST: Ordering parts on Mouser <<<<<<
-2020-10-15 <font color="63C0EC"><b>P08_01_00 Ordering parts on Mouser</b></font>
-I'm pretty excited about the solar DC-DC converter ideas I found in my previous post. I don't have most of the components needed to make them so I decided that now is the time to get some more parts from Mouser. I'm getting:
-<ul>
-	<li>Solar cells</li>
-	<li>ATtiny85Vs</li>
-	<li>3V zeners</li>
-	<li>5V zeners</li>
-	<li>Schottky diodes</li>
-	<li>Rectifier diodes</li>
-</ul>
-I'm pretty excited since I think this will probably work and help move this project forward.
-<font color="63C0EC">Category:</font> Gardening
-<font color="63C0EC">Tags:</font> Arduino, Domotics, Engineering, Gardening, Home Automation, P08_01_00, Plants, Software, Solar
-<a href="https://kionokitse.wordpress.com/solar-hydrobeacon/">Project Page</a>
-
-
 >>>>>> NEW POST: Solar power circuit <<<<<<
 2020-10-15 <font color="63C0EC"><b>P08_01_00 Solar power circuit</b></font>
 I finally got the eagerly awaited components from Mouser and was able to test some of the solar DC-DC converter designs that I was interested in. The most simple design is was the <a href="https://hackaday.io/project/164682-a-cheap-and-dangerous-garden-light-boost-converter/details">Randy Elwin design</a>. I quickly tried it a while back but was not able to get it to work. I didn't have much time to work with it but looking back I had my wiring wrong and the ANA608s I have work differently than the YX8051s that Randy was using. The design that I was most interested in trying was the <a href="https://dzrmo.wordpress.com/2017/01/02/garden-light-redux-aka-joule-thief-p-1/">DZRMO design</a>. It's pretty much the same thing but with a zener regulating the output voltage instead of using the ATtiny85's output pin to control the LED driver. I was also interested in the <a href="https://skootsone.yolasite.com/solar-led-msp430.php">SKootS design</a> but have not had a chance to try it yet. I was able to get the DZRMO design to work with the new components.
